@@ -8,9 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    private let columns = [
+        GridItem(),
+        GridItem(),
+        GridItem(),
+        GridItem(),
+        GridItem(),
+        GridItem()
+    ]
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ScrollView {
+            LazyVGrid(columns: columns) {
+                ForEach(0 ..< 100) { value in
+                    Image(systemName: "person.circle")
+                        .resizable()
+                        .scaledToFit()
+                }
+            }
+        }
     }
 }
 
